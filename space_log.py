@@ -18,10 +18,10 @@ except:
 # Uncomment, and add your work in the appropriate spots.
 argSwitcher = {
 #	'-s': NAMES OF SYSTEMS VISITED
-	'-p': planets.Name_of_planets_scanned #NAMES OF PLANETS SCANNED
+	'-p': planets.find_planet_names #NAMES OF PLANETS SCANNED
 #	'-t': TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
 #	'-d': TOTAL DISTANCE IN LIGHT YEARS
-	'-f': fuel.get_total_fuel,	# The example.
+#	'-f': fuel.get_total_fuel,	# The example.
 }
 
 try:
