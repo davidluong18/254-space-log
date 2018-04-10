@@ -3,7 +3,8 @@
 # Use like `./space_log.py -s|-p|-t|-d|-f log_file
 
 from sys import argv
-import fuel, re, systems
+
+import fuel, re, planets, terraform, systems
 
 # Opens the log file and grabs the contents.
 try:
@@ -13,13 +14,13 @@ try:
 except IndexError:
 	exit("Missing name of log file.")
 except:
-	exit("Couldn't open file \""+sys.argv[1]+"\".")
+	exit("Couldn't open file \""+argv[1]+"\".")
 
 # Uncomment, and add your work in the appropriate spots.
 argSwitcher = {
 	'-s': systems.find_system_names, # NAMES OF SYSTEMS VISITED
-#	'-p': NAMES OF PLANETS SCANNED
-#	'-t': TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
+	'-p': planets.find_planet_names, #NAMES OF PLANETS SCANNED
+	'-t': terraform.amount_terraformable_planets #TOTAL NUMBER OF TERRAFORMABLE PLANETS SCANNED
 #	'-d': TOTAL DISTANCE IN LIGHT YEARS
 #	'-f': fuel.get_total_fuel,	# The example.
 }
@@ -29,4 +30,9 @@ try:
 except IndexError:
 	exit("Missing search argument.")
 
-print(func(content))
+output = func(content)
+if type(output) is list:
+	for l in output:
+		print(l)
+else:
+	print(output)
